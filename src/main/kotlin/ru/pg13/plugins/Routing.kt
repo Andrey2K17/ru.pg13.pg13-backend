@@ -18,5 +18,8 @@ fun Application.configureRouting() {
         get("/") {
             call.respond(Test(text = "Hello, Krasnoyarsk!"))
         }
+        get("/test") {
+            call.respondText("Test Hello World")
+        }
     }
 }
