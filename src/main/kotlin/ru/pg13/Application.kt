@@ -18,7 +18,8 @@ fun main() {
 
     Database.connect(dataSource)
     //embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
-    embeddedServer(Netty, port = System.getenv("PORT")?.toInt() ?: 5432) {
+    //embeddedServer(Netty, port = System.getenv("PORT")?.toInt() ?: 5432) {
+    embeddedServer(Netty, port = System.getenv("PORT").toInt()) {
         configureRouting()
         configureLoginRouting()
         configureRegisterRouting()
