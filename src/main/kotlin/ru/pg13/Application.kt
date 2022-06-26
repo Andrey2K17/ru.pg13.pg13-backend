@@ -11,14 +11,12 @@ import ru.pg13.features.register.configureRegisterRouting
 import ru.pg13.plugins.*
 
 fun main() {
-//    Database.connect("jdbc:postgresql://localhost:5432/playzone", driver = "org.postgresql.Driver",
-//    user = "postgres", password = "129837qaw")
+    //Database.connect("jdbc:postgresql://localhost:5432/playzone", driver = "org.postgresql.Driver",
+    //user = "postgres", password = "129837qaw")
     val config = HikariConfig("hikari.properties")
     val dataSource = HikariDataSource(config)
 
     Database.connect(dataSource)
-    //embeddedServer(Netty, port = 8080, host = "0.0.0.0") {
-    //embeddedServer(Netty, port = System.getenv("PORT")?.toInt() ?: 5432) {
     embeddedServer(Netty, port = System.getenv("PORT").toInt()) {
         configureRouting()
         configureLoginRouting()
