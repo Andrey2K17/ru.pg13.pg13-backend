@@ -13,6 +13,7 @@ import ru.pg13.plugins.*
 fun main() {
     //Database.connect("jdbc:postgresql://localhost:5432/playzone", driver = "org.postgresql.Driver",
     //user = "postgres", password = "129837qaw")
+
     val config = HikariConfig("hikari.properties")
     val dataSource = HikariDataSource(config)
 
