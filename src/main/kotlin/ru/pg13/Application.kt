@@ -24,6 +24,7 @@ fun main() {
 
     config.jdbcUrl =
         "jdbc:postgresql://" + uri.host + ":" + uri.port + uri.path + "?sslmode=require" + "&user=$username&password=$password"
+    config.validate()
 
     val dataSource = HikariDataSource(config)
 
