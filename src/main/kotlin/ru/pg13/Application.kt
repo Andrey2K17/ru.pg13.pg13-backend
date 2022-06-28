@@ -15,6 +15,8 @@ fun main() {
     //user = "postgres", password = "129837qaw")
 
     val config = HikariConfig("hikari.properties")
+    config.jdbcUrl = System.getenv("DATABASE_URL")
+    config.driverClassName = System.getenv("JDBC_DRIVER")
     val dataSource = HikariDataSource(config)
 
     Database.connect(dataSource)
