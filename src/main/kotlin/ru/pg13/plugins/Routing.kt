@@ -19,7 +19,7 @@ fun Application.configureRouting() {
             call.respond(Test(text = "Hello, Krasnoyarsk!"))
         }
         get("/test") {
-            call.respondText("наконец то эта залупа завелась!")
+            call.respondText("Здравствуйте! Вы зашли на сервер данила тидена")
         }
     }
 }
