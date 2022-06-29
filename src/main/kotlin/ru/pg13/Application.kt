@@ -17,14 +17,13 @@ fun main() {
 
     val config = HikariConfig("hikari.properties")
     //config.jdbcUrl = System.getenv("DATABASE_URL")
-    config.driverClassName = System.getenv("JDBC_DRIVER")
+    //config.driverClassName = System.getenv("JDBC_DRIVER")
     val uri = URI(System.getenv("DATABASE_URL"))
     val username = uri.userInfo.split(":").toTypedArray()[0]
     val password = uri.userInfo.split(":").toTypedArray()[1]
 
     config.jdbcUrl =
         "jdbc:postgresql://" + uri.host + ":" + uri.port + uri.path + "?sslmode=require" + "&user=$username&password=$password"
-    config.validate()
 
     val dataSource = HikariDataSource(config)
 
