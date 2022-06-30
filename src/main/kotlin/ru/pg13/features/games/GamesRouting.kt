@@ -10,7 +10,7 @@ fun Application.configureGamesRouting() {
            GamesController(call).createGame()
         }
 
-        post("games/search") {
+        post("/games/search") {
             GamesController(call).performSearch()
         }
     }
