@@ -9,7 +9,7 @@ fun Application.configureSongsRouting() {
 
     routing {
         get("/songs") {
-           call.respond(DAOFacadeImpl().dao.allSongs())
+           call.respond(mapOf("songs" to DAOFacadeImpl().dao.allSongs()))
         }
     }
 }
