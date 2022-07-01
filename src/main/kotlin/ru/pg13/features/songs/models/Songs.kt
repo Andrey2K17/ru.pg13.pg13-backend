@@ -2,6 +2,7 @@ package ru.pg13.features.songs.models
 
 import org.jetbrains.exposed.sql.Table
 
+@kotlinx.serialization.Serializable
 data class Song(val id: Int, val title: String, val singer: String)
 
 object Songs : Table() {

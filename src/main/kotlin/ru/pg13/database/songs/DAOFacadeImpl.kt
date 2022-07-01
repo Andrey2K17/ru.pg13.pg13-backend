@@ -1,6 +1,5 @@
 package ru.pg13.database.songs
 
-import kotlinx.coroutines.runBlocking
 import org.jetbrains.exposed.sql.*
 import ru.pg13.features.songs.models.Song
 import ru.pg13.features.songs.models.Songs
@@ -24,8 +23,9 @@ class DAOFacadeImpl : DAOFacade {
             .singleOrNull()
     }
 
-    override suspend fun addNewSong(title: String, singer: String): Song? = dbQuery {
+    override suspend fun addNewSong(id: Int, title: String, singer: String): Song? = dbQuery {
         val insertSong = Songs.insert {
+            it[Songs.id] = id
             it[Songs.title] = title
             it[Songs.singer] = singer
         }
@@ -41,13 +41,5 @@ class DAOFacadeImpl : DAOFacade {
 
     override suspend fun deleteSong(id: Int): Boolean = dbQuery {
         Songs.deleteWhere { Songs.id eq id } > 0
-    }
-
-    val dao: DAOFacade = DAOFacadeImpl().apply {
-        runBlocking {
-            if(allSongs().isEmpty()) {
-                addNewSong("Cash in cash out", "21 Savage")
-            }
-        }
     }
 }
