@@ -5,6 +5,7 @@ import com.zaxxer.hikari.HikariDataSource
 import io.ktor.server.engine.*
 import io.ktor.server.netty.*
 import org.jetbrains.exposed.sql.Database
+import ru.pg13.features.authority.models.configureAuthorityRouting
 import ru.pg13.features.games.configureGamesRouting
 import ru.pg13.features.login.configureLoginRouting
 import ru.pg13.features.register.configureRegisterRouting
@@ -24,5 +25,6 @@ fun main() {
         configureGamesRouting()
         configureSerialization()
         configureSongsRouting()
+        configureAuthorityRouting()
     }.start(wait = true)
 }
